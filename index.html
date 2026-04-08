@@ -2,7 +2,7 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Presentación Proyecto Python</title>
+    <title>Jalyry app design presentation</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -21,7 +21,7 @@
 
     <!-- PORTADA -->
     <section id="inicio" class="seccion portada">
-        <h1>Proyecto en Python</h1>
+        <h1>Jalyry app design presentation </h1>
         <p>Nombre del alumno</p>
         <p>Taller de Programación</p>
     </section>
@@ -45,26 +45,42 @@
         </ul>
     </section>
 
+     <!-- diseño -->
+<section id="diseño" class="seccion">
+        <h2>Diseño del Proyecto</h2>
+        <p>Aquí puedes incluir un diagrama de flujo o una descripción del diseño de tu proyecto.</p>
+    </section>
+
+
+
+
     <!-- INTERFACES -->
     <section id="interfaces" class="seccion">
         <h2>Interfaces del Proyecto</h2>
-
-        <div class="galeria">
-            <div class="card">
-                <h3>Pantalla Principal</h3>
-                <img src="img/interfaz1.png" alt="Interfaz 1">
+        <div class="carousel-container">
+            <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
+            <div class="galeria" id="galeria">
+                <div class="card">
+                    <h3>Pantalla Principal</h3>
+                    <img src="img/interfaz1.png" alt="Interfaz 1">
+                </div>
+                <div class="card">
+                    <h3>Funcionalidad 1</h3>
+                    <img src="img/interfaz2.png" alt="Interfaz 2">
+                </div>
+                <div class="card">
+                    <h3>Otra Pantalla</h3>
+                    <img src="img/interfaz3.png" alt="Interfaz 3">
+                </div>
             </div>
-
-            <div class="card">
-                <h3>Funcionalidad 1</h3>
-                <img src="img/interfaz2.png" alt="Interfaz 2">
-            </div>
-
-            <div class="card">
-                <h3>Otra Pantalla</h3>
-                <img src="img/interfaz3.png" alt="Interfaz 3">
-            </div>
+            <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
         </div>
+    </section>
+
+    <!-- DESARROLLO -->
+    <section id="desarrollo" class="seccion">
+        <h2>Desarrollo del Proyecto</h2>
+        <p>Aquí puedes incluir información sobre el proceso de desarrollo del proyecto.</p>
     </section>
 
     <!-- TECNOLOGÍAS -->
@@ -77,10 +93,27 @@
         </ul>
     </section>
 
+    <!-- CRONOGRAMA -->
+    <section id="cronograma" class="seccion">
+        <h2>Cronograma del Proyecto</h2>
+        <p> Aquí puedes incluir un cronograma con las fechas clave del desarrollo del proyecto.</p>
+    </section>
+
+
     <!-- FOOTER -->
     <footer>
         <p>Proyecto escolar - 2026</p>
     </footer>
-
+    
+    <script>
+        function moveSlide(direction) {
+            const galeria = document.getElementById('galeria');
+            const cardWidth = galeria.querySelector('.card').offsetWidth + 20; // Width + gap
+            galeria.scrollBy({
+                left: direction * cardWidth,
+                behavior: 'smooth'
+            });
+        }
+    </script>
 </body>
 </html>
