@@ -28,6 +28,8 @@ nav a {
 .seccion {
     padding: 60px;
     text-align: center;
+    background-color: rgb(147, 4, 4); /* Cambia el fondo a rojo para todas las secciones */
+    color: white; 
 }
 
 .portada {
