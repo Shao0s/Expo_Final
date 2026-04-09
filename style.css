@@ -58,11 +58,11 @@ nav a {
 }
 
 .card {
-    flex: 0 0 280px; /* Tamaño fijo para las tarjetas en el carrusel */
-    background: white;
+    flex: 0 0 180px; /* Tamaño fijo para las tarjetas en el carrusel */
+    background: rgb(94, 2, 2);
     padding: 15px;
     border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    box-shadow: 0px 4px 10px rgba(193, 103, 1, 0.778);
     transition: transform 0.3s;
 }
 
@@ -81,8 +81,11 @@ nav a {
 }
 
 .card img {
-    width: 100%;
-    border-radius: 5px;
+    width: 100%;      /* Ocupa todo el ancho de la tarjeta */
+    height: 350px;    /* ALTURA FIJA: Cambia este valor para ajustar el tamaño de todas */
+    object-fit: cover; /* Mantiene la proporción recortando los bordes en lugar de estirar */
+    display: block;
+    border-radius: 10px;
 }
 
 /* FOOTER */
