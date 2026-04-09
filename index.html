@@ -57,8 +57,8 @@
     <section id="interfaces" class="seccion">
         <h2>Interfaces del Proyecto</h2>
         <div class="carousel-container">
-            <button class="carousel-btn prev" onclick="moveSlide(-1)">&#10094;</button>
-            <div class="galeria" id="galeria">
+            <button class="carousel-btn prev" onclick="moveSlide(-1, 'galeria-cliente')">&#10094;</button>
+            <div class="galeria" id="galeria-cliente">
                 <div class="card">
                     <h3>Pantalla Principal</h3>
                     <img src="img/cliente 1 .png" alt="Interfaz 1">
@@ -86,7 +86,39 @@
                 </div>
 
             </div>
-            <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
+            <button class="carousel-btn next" onclick="moveSlide(1, 'galeria-cliente')">&#10095;</button>
+        </div>
+    </section>
+
+    <section id="interfaces-admin" class="seccion">
+        <h2>Interfaces del administrador </h2>
+        <div class="carousel-container">
+            <button class="carousel-btn prev" onclick="moveSlide(-1, 'galeria-admin')">&#10094;</button>
+            <div class="galeria" id="galeria-admin">
+                <div class="card">
+                    <h3>Pantalla Principal</h3>
+                    <img src="img/administrador 1 .png" alt="Interfaz 1">
+                </div>
+                <div class="card">
+                    <h3>Funcionalidad 1</h3>
+                    <img src="img/administrador 2 .png" alt="Interfaz 2">
+                </div>
+                <div class="card">
+                    <h3>Otra Pantalla</h3>
+                    <img src="img/administrador 3 .png" alt="Interfaz 3">
+                </div>
+                <div class="card">
+                    <h3>Funcionalidad 2</h3>
+                    <img src="img/administrador 4 .png" alt="Interfaz 4">
+
+                </div>
+                <div class="card">
+                    <h3>Funcionalidad 3</h3>
+                    <img src="img/administrador 5 .png" alt="Interfaz 5">
+                </div>
+               
+            </div>
+            <button class="carousel-btn next" onclick="moveSlide(1, 'galeria-admin')">&#10095;</button>
         </div>
     </section>
 
@@ -119,9 +151,9 @@
     </footer>
     
     <script>
-        function moveSlide(direction) {
-            const galeria = document.getElementById('galeria');
-            const cardWidth = galeria.querySelector('.card').offsetWidth + 20; // 280px + 20px de gap
+        function moveSlide(direction, id) {
+            const galeria = document.getElementById(id);
+            const cardWidth = galeria.querySelector('.card').offsetWidth + 20; 
             galeria.scrollBy({
                 left: direction * cardWidth,
                 behavior: 'smooth'
