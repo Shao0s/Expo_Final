@@ -34,7 +34,8 @@ nav a {
 
 .portada {
     background: #007BFF;
-    color: white;
+    color: rgb(175, 198, 0); 
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     height: 100vh;
 }
 
@@ -44,7 +45,7 @@ nav a {
     align-items: center;
     justify-content: center;
     gap: 10px;
-    max-width: 600px;
+    max-width: 800px;
     
     margin: 0 auto;
     position: relative;
@@ -72,7 +73,7 @@ nav a {
     transform: scale(1.05);
 }
 
-.carousel-btn {
+.carousel-btn { 
     background: #333;
     color: white;
     border: none;
