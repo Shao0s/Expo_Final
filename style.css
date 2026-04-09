@@ -37,19 +37,47 @@ nav a {
 }
 
 /* GALERÍA */
+.carousel-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    max-width: 600px;
+    
+    margin: 0 auto;
+    position: relative;
+}
+
 .galeria {
     display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 30px;
+    flex-wrap: nowrap; /* Evita que las imágenes se bajen */
+    overflow-x: hidden; /* Esconde la barra de desplazamiento */
+    scroll-behavior: smooth;
+    gap: 20px;
+    padding: 20px;
 }
 
 .card {
+    flex: 0 0 280px; /* Tamaño fijo para las tarjetas en el carrusel */
     background: white;
     padding: 15px;
     border-radius: 10px;
-    width: 250px;
     box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
+
+.carousel-btn {
+    background: #333;
+    color: white;
+    border: none;
+    padding: 15px;
+    cursor: pointer;
+    border-radius: 50%;
+    font-size: 1.2rem;
 }
 
 .card img {

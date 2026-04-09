@@ -62,16 +62,30 @@
             <div class="galeria" id="galeria">
                 <div class="card">
                     <h3>Pantalla Principal</h3>
-                    <img src="img/interfaz1.png" alt="Interfaz 1">
+                    <img src="img/cliente 1 .png" alt="Interfaz 1">
                 </div>
                 <div class="card">
                     <h3>Funcionalidad 1</h3>
-                    <img src="img/interfaz2.png" alt="Interfaz 2">
+                    <img src="img/cliente 2 .png" alt="Interfaz 2">
                 </div>
                 <div class="card">
                     <h3>Otra Pantalla</h3>
-                    <img src="img/interfaz3.png" alt="Interfaz 3">
+                    <img src="img/cliente 3.png" alt="Interfaz 3">
                 </div>
+                <div class="card">
+                    <h3>Funcionalidad 2</h3>
+                    <img src="img/cliente 4 .png" alt="Interfaz 4">
+
+                </div>
+                <div class="card">
+                    <h3>Funcionalidad 3</h3>
+                    <img src="img/cliente 5 .png" alt="Interfaz 5">
+                </div>
+                <div class="card">
+                    <h3>Funcionalidad 4</h3>
+                    <img src="img/cliente 6 .png" alt="Interfaz 6">
+                </div>
+
             </div>
             <button class="carousel-btn next" onclick="moveSlide(1)">&#10095;</button>
         </div>
@@ -108,7 +122,7 @@
     <script>
         function moveSlide(direction) {
             const galeria = document.getElementById('galeria');
-            const cardWidth = galeria.querySelector('.card').offsetWidth + 20; // Width + gap
+            const cardWidth = galeria.querySelector('.card').offsetWidth + 20; // 280px + 20px de gap
             galeria.scrollBy({
                 left: direction * cardWidth,
                 behavior: 'smooth'
