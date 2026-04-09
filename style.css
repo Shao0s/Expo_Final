@@ -35,6 +35,7 @@ nav a {
 .portada {
     background: #007BFF;
     color: white;
+   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
     height: 100vh;
 }
 
