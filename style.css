@@ -99,3 +99,85 @@ footer {
     text-align: center;
     padding: 15px;
 }
+
+
+
+
+        
+
+        .gantt-container {
+            max-width: 1000px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            overflow: hidden;
+            border: 1px solid var(--border-color);
+        }
+
+        .gantt-header {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            background: #f1f5f9;
+            font-weight: bold;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .gantt-row {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            border-bottom: 1px solid var(--border-color);
+            transition: background 0.2s;
+        }
+
+        .gantt-row:hover {
+            background-color: var(--row-hover);
+        }
+
+        .task-name {
+            padding: 15px;
+            border-right: 1px solid var(--border-color);
+            display: flex;
+            align-items: center;
+        }
+
+        .timeline-wrapper {
+            position: relative;
+            padding: 15px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Barra de progreso */
+        .bar {
+            height: 24px;
+            background-color: var(--primary-color);
+            border-radius: 12px;
+            position: relative;
+            min-width: 20px;
+            color: rgb(255, 7, 7);
+            font-size: 0.75rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+        }
+
+        /* Etiquetas de meses o semanas (Opcional) */
+        .months-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            text-align: center;
+            padding: 10px 0;
+            font-size: 0.85rem;
+            color: #64748b;
+        }
+
+        .status-tag {
+            font-size: 0.7rem;
+            padding: 2px 8px;
+            border-radius: 10px;
+            margin-left: 10px;
+            background: #dcfce7;
+            color: #166534;
+        }
