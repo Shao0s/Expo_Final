@@ -28,14 +28,15 @@ nav a {
 .seccion {
     padding: 60px;
     text-align: center;
-    background-color: rgb(147, 4, 4); /* Cambia el fondo a rojo para todas las secciones */
-    color: white; 
+    background-color: rgb(172, 21, 21); /* Cambia el fondo a rojo para todas las secciones */
+    color: rgb(0, 98, 255); 
+     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.975);
 }
 
 .portada {
-    background: #007BFF;
-    color: white;
-   text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+    background: #025a01;
+    color: rgb(255, 0, 0);
+   text-shadow: 2px 2px 5px rgba(255, 251, 0, 0.851);
     height: 100vh;
 }
 
