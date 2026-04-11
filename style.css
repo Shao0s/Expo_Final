@@ -28,69 +28,71 @@ nav a {
 .seccion {
     padding: 60px;
     text-align: center;
-    background-color: rgb(172, 21, 21); /* Cambia el fondo a rojo para todas las secciones */
-    color: rgb(0, 98, 255); 
-     text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.975);
+    background-color: rgb(172, 21, 21);
+    color: rgb(0, 98, 255);
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.975);
 }
 
 .portada {
     background: #025a01;
     color: rgb(255, 0, 0);
-   text-shadow: 2px 2px 5px rgba(255, 251, 0, 0.851);
+    text-shadow: 2px 2px 5px rgba(255, 251, 0, 0.851);
     height: 100vh;
 }
 
-/* GALERÍA */
-.carousel-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    max-width: 800px;
-    
-    margin: 0 auto;
+/* ========================= */
+/* CARRUSEL */
+/* ========================= */
+
+.carrusel {
     position: relative;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
 }
 
-.galeria {
-    display: flex;
-    flex-wrap: nowrap; /* Evita que las imágenes se bajen */
-    overflow-x: hidden; /* Esconde la barra de desplazamiento */
-    scroll-behavior: smooth;
-    gap: 20px;
-    padding: 20px;
-}
-
-.card {
-    flex: 0 0 180px; /* Tamaño fijo para las tarjetas en el carrusel */
-    background: rgb(94, 2, 2);
-    padding: 15px;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(193, 103, 1, 0.778);
-    transition: transform 0.3s;
-}
-
-.card:hover {
-    transform: scale(1.05);
-}
-
-.carousel-btn { 
-    background: #333;
+.slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     color: white;
-    border: none;
-    padding: 15px;
-    cursor: pointer;
-    border-radius: 50%;
-    font-size: 1.2rem;
 }
 
-.card img {
-    width: 100%;      /* Ocupa todo el ancho de la tarjeta */
-    height: 350px;    /* ALTURA FIJA: Cambia este valor para ajustar el tamaño de todas */
-    object-fit: cover; /* Mantiene la proporción recortando los bordes en lugar de estirar */
-    display: block;
-    border-radius: 10px;
+.slide img {
+    height: 90vh;
+    width: auto;
+    object-fit: contain;
 }
+
+.slide.activo {
+    display: flex;
+}
+
+/* BOTONES */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    font-size: 50px;
+    padding: 15px 25px;
+    cursor: pointer;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.carousel-btn:hover {
+    background: rgba(255,255,255,0.4);
+}
+
+.prev { left: 30px; }
+.next { right: 30px; }
 
 /* FOOTER */
 footer {
@@ -100,84 +102,87 @@ footer {
     padding: 15px;
 }
 
+/* ========================= */
+/* GANTT (ARREGLADO VARIABLES) */
+/* ========================= */
 
+:root {
+    --border-color: #e5e7eb;
+    --primary-color: #2563eb;
+    --row-hover: #f9fafb;
+}
 
+.gantt-container {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+    overflow: hidden;
+    border: 1px solid var(--border-color);
+}
 
-        
+.gantt-header {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    background: #f1f5f9;
+    font-weight: bold;
+    border-bottom: 2px solid var(--border-color);
+}
 
-        .gantt-container {
-            max-width: 1000px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 8px;
-            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-            overflow: hidden;
-            border: 1px solid var(--border-color);
-        }
+.gantt-row {
+    display: grid;
+    grid-template-columns: 250px 1fr;
+    border-bottom: 1px solid var(--border-color);
+    transition: background 0.2s;
+}
 
-        .gantt-header {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            background: #f1f5f9;
-            font-weight: bold;
-            border-bottom: 2px solid var(--border-color);
-        }
+.gantt-row:hover {
+    background-color: var(--row-hover);
+}
 
-        .gantt-row {
-            display: grid;
-            grid-template-columns: 250px 1fr;
-            border-bottom: 1px solid var(--border-color);
-            transition: background 0.2s;
-        }
+.task-name {
+    padding: 15px;
+    border-right: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+}
 
-        .gantt-row:hover {
-            background-color: var(--row-hover);
-        }
+.timeline-wrapper {
+    position: relative;
+    padding: 15px;
+    display: flex;
+    align-items: center;
+}
 
-        .task-name {
-            padding: 15px;
-            border-right: 1px solid var(--border-color);
-            display: flex;
-            align-items: center;
-        }
+/* BARRA */
+.bar {
+    height: 24px;
+    background-color: var(--primary-color);
+    border-radius: 12px;
+    min-width: 20px;
+    color: white;
+    font-size: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
+}
 
-        .timeline-wrapper {
-            position: relative;
-            padding: 15px;
-            display: flex;
-            align-items: center;
-        }
+.months-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    text-align: center;
+    padding: 10px 0;
+    font-size: 0.85rem;
+    color: #64748b;
+}
 
-        /* Barra de progreso */
-        .bar {
-            height: 24px;
-            background-color: var(--primary-color);
-            border-radius: 12px;
-            position: relative;
-            min-width: 20px;
-            color: rgb(255, 7, 7);
-            font-size: 0.75rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            box-shadow: 0 2px 4px rgba(37, 99, 235, 0.2);
-        }
-
-        /* Etiquetas de meses o semanas (Opcional) */
-        .months-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            text-align: center;
-            padding: 10px 0;
-            font-size: 0.85rem;
-            color: #64748b;
-        }
-
-        .status-tag {
-            font-size: 0.7rem;
-            padding: 2px 8px;
-            border-radius: 10px;
-            margin-left: 10px;
-            background: #dcfce7;
-            color: #166534;
-        }
+.status-tag {
+    font-size: 0.7rem;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: 10px;
+    background: #dcfce7;
+    color: #166534;
+}

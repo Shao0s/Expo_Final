@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Presentación</title>
+
+<style>
+  body {
+    margin: 0;
+    background: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+
+  .carrusel {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+  }
+
+  .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: none; /* 👈 ocultas por defecto */
+    justify-content: center;
+    align-items: center;
+  }
+
+  .slide img {
+    height: 95vh;
+    width: auto;
+    object-fit: contain;
+  }
+
+  .activo {
+    display: flex; /* 👈 solo una visible */
+  }
+
+  button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,255,255,0.2);
+    border: none;
+    color: white;
+    font-size: 50px;
+    padding: 15px 25px;
+    cursor: pointer;
+    border-radius: 10px;
+  }
+
+  .prev { left: 30px; }
+  .next { right: 30px; }
+
+</style>
+</head>
+
+<body>
+
+<div class="carrusel">
+  <div class="slide activo"><img src="img/cliente1.png" alt="Interfaz 1"></div>
+  <div class="slide"><img src="img/cliente2.png" alt="Interfaz 2"></div>
+  <div class="slide"><img src="img3.jpg"></div>
+
+  <button class="prev" onclick="cambiar(-1)">❮</button>
+  <button class="next" onclick="cambiar(1)">❯</button>
+</div>
+
+<script>
+  let index = 0;
+  const slides = document.querySelectorAll(".slide");
+
+  function mostrarSlide(i) {
+    slides.forEach(s => s.classList.remove("activo"));
+    slides[i].classList.add("activo");
+  }
+
+  function cambiar(direccion) {
+    index += direccion;
+
+    if (index < 0) index = slides.length - 1;
+    if (index >= slides.length) index = 0;
+
+    mostrarSlide(index);
+  }
+
+  // Teclado
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "ArrowLeft") cambiar(-1);
+    if (e.key === "ArrowRight") cambiar(1);
+  });
+
+  // Pantalla completa con F
+  document.addEventListener("keydown", (e) => {
+    if (e.key.toLowerCase() === "f") {
+      if (!document.fullscreenElement) {
+        document.documentElement.requestFullscreen();
+      } else {
+        document.exitFullscreen();
+      }
+    }
+  });
+</script>
+
+</body>
+</html>
