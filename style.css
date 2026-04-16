@@ -193,3 +193,15 @@ img.description-image {
     margin-top: 20px;
     border-radius: 8px;
 }
+
+/* TABLA */
+.tg  {border-collapse:collapse;border-color:#C44D58;border-spacing:0;}
+.tg td{background-color:#F9CDAD;border-color:#C44D58;border-style:solid;border-width:0px;color:#6dd5ef;
+  font-family:Arial, sans-serif;font-size:14px;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg th{background-color:#FE4365;border-color:#C44D58;border-style:solid;border-width:0px;color:#fdf6e3;
+  font-family:Arial, sans-serif;font-size:14px;font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
+.tg .tg-1n80{background-color:#161616;color:#ffffff;font-weight:bold;text-align:left;vertical-align:top}
+.tg .tg-wzel{background-color:#161616;border-color:inherit;color:#ffffff;font-size:18px;font-weight:bold;text-align:left;
+  vertical-align:top}
+.tg .tg-6jy2{background-color:#f02b2b;color:#ffffff;text-align:left;vertical-align:top}
+.tg .tg-a9qu{background-color:#f02b2b;text-align:left;vertical-align:top}
