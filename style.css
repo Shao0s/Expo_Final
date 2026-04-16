@@ -34,10 +34,106 @@ nav a {
 }
 
 .portada {
-    background: #025a01;
-    color: rgb(255, 0, 0);
-    text-shadow: 2px 2px 5px rgba(255, 251, 0, 0.851);
-    height: 100vh;
+    background: radial-gradient(circle at center, #3b271e 0%, #2a0f0f 100%);
+    color: white;
+    text-shadow: none;
+    height: 200vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    overflow: hidden; /* Previene que el contenido se salga */
+    box-sizing: border-box;
+    position: relative;
+    z-index: 1; /* Asegura que no se sobreponga */
+}
+
+.portada-content {
+    animation: fadeIn 1.5s ease-out;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+}
+
+.main-logo {
+    width: 280px;
+    height: auto;
+    filter: drop-shadow(0 0 20px rgba(255, 251, 3, 0.3));
+    animation: float 4s ease-in-out infinite;
+    margin-bottom: 20px;
+    max-height: 50vh; /* Evita que sea demasiado grande */
+    object-fit: contain;
+}
+
+.portada h1 {
+    font-size: 5rem;
+    margin: 0;
+    background: linear-gradient(to right, #4b0404, #9e7a0b);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 400;
+    letter-spacing: -2px;
+    padding: 0 20px; /* Evita que se salga en pantallas pequeñas */
+    text-align: center;
+}
+
+.tagline {
+    font-size: 1.5rem;
+    color: #ff3838;
+    margin: 20px 0 40px 0; /* Reajustado */
+    text-shadow: none;
+    padding: 0 20px;
+    text-align: center;
+}
+
+.cta-button {
+    padding: 15px 40px;
+    background: #2c0101;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    box-shadow: 0 10px 20px rgba(212, 6, 6, 0.3);
+    display: inline-block; /* Importante para que funcione bien */
+    white-space: nowrap;
+}
+
+.cta-button:hover {
+    background: #b27908;
+    transform: scale(1.05);
+    box-shadow: 0 15px 25px rgba(212, 6, 6, 0.4);
+}
+
+/* ANIMATIONS */
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-20px); }
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive para pantallas pequeñas */
+@media (max-width: 768px) {
+    .portada h1 {
+        font-size: 3rem;
+    }
+    
+    .tagline {
+        font-size: 1.1rem;
+    }
+    
+    .main-logo {
+        width: 200px;
+    }
 }
 
 /* ========================= */
