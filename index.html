@@ -14,6 +14,7 @@
     <ul> 
         <li><a href="#home">Home</a></li> 
         <li><a href="#description">Description</a></li> 
+        <li><a href="#diseño">Design</a></li>
         <li><a href="#functions">Functions</a></li> 
         <li><a href="#interfaces">Interfaces</a></li> 
         <li><a href="#technologies">Technologies</a></li> 
@@ -72,7 +73,54 @@
 <!-- DISEÑO -->
 <section id="diseño" class="seccion">
     <h2>Project Design</h2>
-    <p>Here you can include a flowchart or a description of your project design.</p>
+    <p>
+        The application architecture is designed to streamline workshop operations through an intuitive navigation flow. 
+        Starting from a secure login, users access a central dashboard that integrates customer management, 
+        appointment scheduling, technical notes, and automated reporting, ensuring all data is synchronized and easily accessible.
+    </p>
+    <div class="mermaid" style="display: flex; justify-content: center; background: rgba(255,255,255,0.05); padding: 20px; border-radius: 10px; margin-top: 20px;">
+        flowchart TD
+          A[Start] --> B[Login]
+          B --> C{Correct credentials?}
+          C -- No --> B
+          C -- Yes --> D[Main Dashboard]
+          D --> D1[Clients]
+          D --> D2[Schedules]
+          D --> D3[Notes]
+          D --> D4[Reports]
+          D --> D5[Notifications]
+
+          %% Client Management
+          D1 --> E1[Client list]
+          E1 --> E2[Add new client]
+          E2 --> E2F[Form -> Save]
+          E1 --> E3[Select client]
+          E3 --> E4{Action}
+          E4 -- Edit --> E4E[Edit form -> Save]
+          E4 -- Delete --> E4D[Confirm -> Delete]
+
+          %% Schedule Control
+          D2 --> F1[View calendar]
+          F1 --> F2[Schedule appointment]
+          F2 --> F2F[Details -> Save]
+
+          %% Note Taking
+          D3 --> G1[Visit history]
+          G1 --> G2[Add new note]
+          G2 --> G2F[Write -> Auto-save]
+
+          %% Reporting
+          D4 --> I1[Report type]
+          I1 --> I2[Date range]
+          I2 --> I3[View report]
+          I3 --> I4[Export data]
+            %% Notifications
+            D5 --> H1[Notification list]
+            H1 --> H2[View details]
+            H2 --> H3[Mark as read]
+            H2 --> H4[Delete]
+            %% End
+    </div>
 </section>
 
 <!-- INTERFACES (CARRUSEL NUEVO) -->
@@ -191,6 +239,10 @@
 </footer>
 
 <!-- JS CARRUSEL -->
+<script type="module">
+    import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.esm.min.mjs';
+    mermaid.initialize({ startOnLoad: true, theme: 'dark' });
+</script>
 <script src="JS.js" defer></script>
 
 </body>
