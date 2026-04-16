@@ -205,3 +205,39 @@ img.description-image {
   vertical-align:top}
 .tg .tg-6jy2{background-color:#f02b2b;color:#ffffff;text-align:left;vertical-align:top}
 .tg .tg-a9qu{background-color:#f02b2b;text-align:left;vertical-align:top}
+
+/* ROLES */
+#roles ul {
+    display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
+            padding: 30px 0;
+            list-style: none;
+        }
+
+        #roles li {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 15px;
+            padding: 25px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            display: flex;
+            flex-direction: column;
+        }
+
+        #roles li:hover {
+            transform: translateY(-10px);
+            background: rgba(255, 255, 255, 0.1);
+            border-color: #06b6d4;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        #roles li strong {
+            display: block;
+            font-size: 1.4rem;
+            color: #06b6d4;
+            margin-bottom: 12px;
+    border-bottom: 1px solid rgba(6, 182, 212, 0.2);
+    padding-bottom: 8px;
+}
