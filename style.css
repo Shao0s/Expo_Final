@@ -224,10 +224,17 @@ body {
     padding: 20px 0;
 }
 
-#description, #roles, #functions, #technologies, #cronograma, #design, #interfaces {
+ #description, #roles, #functions, #technologies, #cronograma, #interfaces {
     justify-content: center;
     padding-top: 0;
     height: 100%;
+}
+
+#design {
+    justify-content: flex-start; /* Alineamos al inicio para ganar espacio abajo */
+    padding-top: 10px;
+    height: 100%;
+    overflow-y: auto; /* Permite navegar el diagrama cuando se aplica el zoom */
 }
 
 #description img {
@@ -480,7 +487,16 @@ footer {
 }
 
 .mermaid {
-    transform: scale(0.6); /* Reducción mayor para el diagrama */
+    transform: scale(0.8); 
     transform-origin: top center;
-    margin-top: -50px;
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s ease;
+    margin-top: 0;
+    width: 100%;
+    cursor: zoom-in;
+}
+
+.mermaid:hover {
+    transform: scale(1.1); /* Efecto de zoom al pasar el mouse */
+    background: rgba(255, 255, 255, 0.08) !important;
+    z-index: 10;
 }
