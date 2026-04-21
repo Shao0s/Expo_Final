@@ -9,31 +9,34 @@
 <body>
 
 <!-- NAV -->
-<nav> 
+<nav class="navbar-fixed"> 
     <h2>My Project</h2> 
     <ul> 
-        <li><a href="#home">Home</a></li> 
-        <li><a href="#description">Description</a></li> 
-        <li><a href="#roles">Roles</a></li>
-        <li><a href="#diseño">Design</a></li>
-        <li><a href="#functions">Functions</a></li> 
-        <li><a href="#interfaces">Interfaces</a></li> 
-        <li><a href="#tecnologias">Technologies</a></li> 
+        <li><a href="#" data-section="home" class="nav-link">Home</a></li> 
+        <li><a href="#" data-section="description" class="nav-link">Description</a></li> 
+        <li><a href="#" data-section="roles" class="nav-link">Roles</a></li>
+        <li><a href="#" data-section="design" class="nav-link">Design</a></li>
+        <li><a href="#" data-section="functions" class="nav-link">Functions</a></li> 
+        <li><a href="#" data-section="interfaces" class="nav-link">Interfaces</a></li> 
+        <li><a href="#" data-section="technologies" class="nav-link">Technologies</a></li> 
     </ul> 
 </nav>
 
+<!-- CONTENEDOR DE SECCIONES -->
+<div class="sections-container">
+
 <!-- PORTADA -->
-<section id="home" class="seccion portada">
+<section id="home" class="seccion portada section-item activa">
     <div class="portada-content">
         <img src="img/logo.png" alt="Jalyry Logo" class="main-logo">
         <h1>Jalyry</h1>
         <p class="tagline">Next Generation Workshop Management System</p>
-        <a href="#description" class="cta-button">Explore Project</a>
+        <a onclick="showSection('description')" class="cta-button" style="cursor: pointer;">Explore Project</a>
     </div>
 </section>
 
 <!-- DESCRIPCIÓN -->
-<section id="description" class="seccion">
+<section id="description" class="seccion section-item">
     <h2>Description of the Project</h2>
     <img src="https://rio.expert/es/wp-content/uploads/2019/08/post02-3.jpg" alt="Descripción del proyecto" class="description-image">
     <p>
@@ -42,7 +45,7 @@
 </section>
 
 <!-- ROLES -->
-<section id="roles" class="seccion">
+<section id="roles" class="seccion section-item">
     <h2>User Roles</h2>
     <p>
         The application defines specific user profiles to ensure an organized workflow and data security:
@@ -60,7 +63,7 @@
 </section>
 
 <!-- FUNCIONES -->
-<section id="functions" class="seccion">
+<section id="functions" class="seccion section-item">
     <h2>Main Functions</h2>
    <table class="tg"><thead>
   <tr>
@@ -94,7 +97,7 @@
 </section>
 
 <!-- DISEÑO -->
-<section id="diseño" class="seccion">
+<section id="design" class="seccion section-item">
     <h2>Project Design</h2>
     <p>
         The application architecture is designed to streamline workshop operations through an intuitive navigation flow. 
@@ -147,7 +150,7 @@
 </section>
 
 <!-- INTERFACES (CARRUSEL NUEVO) -->
-<section id="interfaces" class="seccion">
+<section id="interfaces" class="seccion section-item">
 
     <h2>Client Interfaces</h2>
 
@@ -226,13 +229,13 @@
 </section>
 
 <!-- DESARROLLO -->
-<section id="desarrollo" class="seccion">
+<section id="desarrollo" class="seccion section-item">
     <h2>Project Development</h2>
     <p>Here you can include information about the project development process.</p>
 </section>
 
 <!-- TECNOLOGÍAS -->
-<section id="tecnologias" class="seccion">
+<section id="technologies" class="seccion section-item">
     <h2>Technologies Used</h2> 
     <ul> 
         <li>Python</li> 
@@ -242,7 +245,7 @@
 </section>
 
 <!-- CRONOGRAMA -->
-<section id="cronograma" class="seccion">
+<section id="cronograma" class="seccion section-item">
     <h2>Project Timeline</h2>
 
     <div class="gantt-container">
@@ -290,6 +293,8 @@
 
     </div>
 </section>
+
+</div>
 
 <!-- FOOTER -->
 <footer>
