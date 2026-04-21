@@ -48,85 +48,52 @@ if (navLinks.length > 0) {
 // ============================
 // CARRUSEL CLIENTES
 // ============================
-let index = 0;
+let unifiedIndex = 0;
 
 function mostrarSlide(i) {
-    const slides = document.querySelectorAll('.carrusel:not(.admin-carrusel) .slide');
+    const slides = document.querySelectorAll('.carrusel .slide');
+    const title = document.getElementById('interface-title');
     if (!slides.length) return;
+    
     slides.forEach(slide => slide.classList.remove('activo'));
     slides[i].classList.add('activo');
+
+    // Actualizar título dinámicamente basado en data-type
+    if (title && slides[i].dataset.type) {
+        title.textContent = slides[i].dataset.type + " Interfaces";
+    }
 }
 
-function initializeClientCarousel() {
-    const carruselClientes = document.querySelector('.carrusel:not(.admin-carrusel)');
-    if (!carruselClientes) return;
+function initializeUnifiedCarousel() {
+    const carrusel = document.querySelector('.carrusel');
+    if (!carrusel) return;
 
-    const slides = carruselClientes.querySelectorAll('.slide');
+    const slides = carrusel.querySelectorAll('.slide');
     if (!slides.length) return;
 
-    const prev = carruselClientes.querySelector('.prev');
-    const next = carruselClientes.querySelector('.next');
+    const prev = carrusel.querySelector('.prev');
+    const next = carrusel.querySelector('.next');
 
-    mostrarSlide(index);
+    mostrarSlide(unifiedIndex);
 
     if (next) {
         next.onclick = () => {
-            index = (index + 1) % slides.length;
-            mostrarSlide(index);
+            unifiedIndex = (unifiedIndex + 1) % slides.length;
+            mostrarSlide(unifiedIndex);
         };
     }
 
     if (prev) {
         prev.onclick = () => {
-            index = (index - 1 + slides.length) % slides.length;
-            mostrarSlide(index);
-        };
-    }
-}
-
-// ============================
-// CARRUSEL ADMIN
-// ============================
-let indexAdmin = 0;
-
-function mostrarSlideAdmin(i) {
-    const slidesAdmin = document.querySelectorAll('.admin-carrusel .slide');
-    if (!slidesAdmin.length) return;
-    slidesAdmin.forEach(slide => slide.classList.remove('activo-admin'));
-    slidesAdmin[i].classList.add('activo-admin');
-}
-
-function initializeAdminCarousel() {
-    const carruselAdmin = document.querySelector('.admin-carrusel');
-    if (!carruselAdmin) return;
-
-    const slidesAdmin = carruselAdmin.querySelectorAll('.slide');
-    if (!slidesAdmin.length) return;
-
-    const nextAdmin = carruselAdmin.querySelector('.next-admin');
-    const prevAdmin = carruselAdmin.querySelector('.prev-admin');
-
-    mostrarSlideAdmin(indexAdmin);
-
-    if (nextAdmin) {
-        nextAdmin.onclick = () => {
-            indexAdmin = (indexAdmin + 1) % slidesAdmin.length;
-            mostrarSlideAdmin(indexAdmin);
-        };
-    }
-
-    if (prevAdmin) {
-        prevAdmin.onclick = () => {
-            indexAdmin = (indexAdmin - 1 + slidesAdmin.length) % slidesAdmin.length;
-            mostrarSlideAdmin(indexAdmin);
+            unifiedIndex = (unifiedIndex - 1 + slides.length) % slides.length;
+            mostrarSlide(unifiedIndex);
         };
     }
 }
 
 // Función para reinicializar carruseles
 function reinitializeCarousels() {
-    initializeClientCarousel();
-    initializeAdminCarousel();
+    initializeUnifiedCarousel();
 }
 
 // Inicializar carruseles al cargar
