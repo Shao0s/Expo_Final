@@ -1,10 +1,5 @@
-body {
-    margin: 0;
-    font-family: Arial, sans-serif;
-    background: #070306;
-    color: #f4f1e4;
-    overflow-x: hidden;
-    min-height: 100vh;
+/* Movemos las variables a :root para que sean globales y JS pueda sobrescribirlas */
+:root {
     --bg-start: #120408;
     --bg-mid: #19070c;
     --bg-end: #070306;
@@ -15,6 +10,17 @@ body {
     --bubble-mid: rgba(255, 182, 85, 0.44);
     --bubble-shadow: rgba(180, 65, 12, 0.18);
     --bubble-glow: rgba(255, 150, 60, 0.2);
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    /* Usamos la variable para que el fondo cambie en tiempo real */
+    background: var(--bg-end);
+    color: #f4f1e4;
+    overflow-x: hidden;
+    min-height: 100vh;
+    transition: background 0.4s ease; /* Transición suave al cambiar de color */
 }
 
 /* NAV FIJO */
@@ -279,6 +285,7 @@ body[data-theme="warm"] {
     --bg-start: #120408;
     --bg-mid: #19070c;
     --bg-end: #070306;
+    transition: background 0.3s ease; /* Suaviza el cambio de color en tiempo real */
     --glow-1: rgba(255, 166, 56, 0.18);
     --glow-2: rgba(255, 220, 120, 0.12);
     --glow-3: rgba(255, 207, 131, 0.05);

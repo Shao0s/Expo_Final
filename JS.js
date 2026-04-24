@@ -89,6 +89,14 @@ function updateColorSettings() {
     document.documentElement.style.setProperty('--bubble-mid', `hsla(${h}, ${s}%, ${bubbleMid}%, 0.44)`);
     document.documentElement.style.setProperty('--bubble-shadow', `hsla(${h}, ${s}%, ${shadowLight}%, 0.18)`);
     document.documentElement.style.setProperty('--bubble-glow', `hsla(${h}, ${s}%, ${glowLightStrong}%, 0.2)`);
+
+    // Mejoramos la visibilidad del cambio en el fondo
+    const bgS = Math.min(s, 25); // Mantener saturación baja en el fondo para legibilidad
+    const bgL = Math.max(l - 35, 4); // Ajustamos el brillo del fondo basado en el slider
+    
+    document.documentElement.style.setProperty('--bg-start', `hsla(${h}, ${bgS}%, ${bgL + 6}%, 1)`);
+    document.documentElement.style.setProperty('--bg-mid', `hsla(${h}, ${bgS}%, ${bgL + 3}%, 1)`);
+    document.documentElement.style.setProperty('--bg-end', `hsla(${h}, ${bgS}%, ${bgL}%, 1)`);
 }
 
 function openColorPanel() {
