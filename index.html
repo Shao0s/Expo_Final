@@ -20,11 +20,37 @@
         <li><a href="#" data-section="interfaces" class="nav-link">Interfaces</a></li> 
         <li><a href="#" data-section="technologies" class="nav-link">Technologies</a></li> 
         <li><a href="#" data-section="cronograma" class="nav-link">Cronograma</a></li> 
-    </ul> 
+    </ul>
+    <button id="color-toggle" class="color-toggle-btn" type="button" aria-expanded="false">Color</button>
+    <div class="color-panel" id="color-panel" hidden>
+        <button id="color-close" class="color-close-btn" type="button" aria-label="Cerrar panel de color">×</button>
+        <label>
+            Color base
+            <input id="color-picker" type="color" value="#ff8a25">
+        </label>
+        <label>
+            Saturación <span id="sat-value">80%</span>
+            <input id="sat-slider" type="range" min="0" max="100" value="80">
+        </label>
+        <label>
+            Brillo <span id="lum-value">40%</span>
+            <input id="lum-slider" type="range" min="0" max="100" value="40">
+        </label>
+    </div>
 </nav>
 
 <!-- CONTENEDOR DE SECCIONES -->
 <div class="sections-container">
+    <div class="lava-lamp-bg" aria-hidden="true">
+        <div class="lava-bubble bubble-1"></div>
+        <div class="lava-bubble bubble-2"></div>
+        <div class="lava-bubble bubble-3"></div>
+        <div class="lava-bubble bubble-4"></div>
+        <div class="lava-bubble bubble-5"></div>
+        <div class="lava-bubble bubble-6"></div>
+        <div class="lava-bubble bubble-7"></div>
+        <div class="lava-bubble bubble-8"></div>
+    </div>
 
 <!-- PORTADA -->
 <section id="home" class="seccion portada section-item activa">

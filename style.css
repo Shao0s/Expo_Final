@@ -1,8 +1,20 @@
 body {
     margin: 0;
     font-family: Arial, sans-serif;
-    background: #f4f4f4;
-    overflow: hidden;
+    background: #070306;
+    color: #f4f1e4;
+    overflow-x: hidden;
+    min-height: 100vh;
+    --bg-start: #120408;
+    --bg-mid: #19070c;
+    --bg-end: #070306;
+    --glow-1: rgba(255, 166, 56, 0.18);
+    --glow-2: rgba(255, 220, 120, 0.12);
+    --glow-3: rgba(255, 207, 131, 0.05);
+    --bubble-light: rgba(255, 255, 255, 0.95);
+    --bubble-mid: rgba(255, 182, 85, 0.44);
+    --bubble-shadow: rgba(180, 65, 12, 0.18);
+    --bubble-glow: rgba(255, 150, 60, 0.2);
 }
 
 /* NAV FIJO */
@@ -95,13 +107,18 @@ body {
 /* SECCIONES */
 .seccion {
     text-align: center;
-    background-color: rgb(172, 21, 21);
-    color: rgb(0, 98, 255);
-    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.975);
+    background: rgba(12, 7, 16, 0.76);
+    color: #f5efe4;
+    text-shadow: 1px 1px 12px rgba(0, 0, 0, 0.55);
+    border: 1px solid rgba(255, 170, 70, 0.12);
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(10px);
 }
 
 #cronograma {
-    background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+    background: rgba(12, 7, 16, 0.82);
+    border: 1px solid rgba(255, 170, 70, 0.14);
+    box-shadow: inset 0 0 45px rgba(0, 0, 0, 0.22);
     color: #f1f5f9;
 }
 
@@ -111,7 +128,7 @@ body {
 }
 
 .portada {
-    background: radial-gradient(circle at center, #a10404 50%,#050403 100%);
+    background: linear-gradient(180deg, var(--bg-start) 0%, var(--bg-mid) 32%, var(--bg-end) 100%);
     color: white;
     text-shadow: none;
     display: flex;
@@ -122,6 +139,271 @@ body {
     height: 100%;
     position: relative;
     z-index: 1;
+    overflow: hidden;
+}
+
+.lava-lamp-bg {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.lava-lamp-bg::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at 30% 15%, var(--glow-1), transparent 18%),
+                radial-gradient(circle at 70% 75%, var(--glow-2), transparent 16%),
+                radial-gradient(circle at 55% 45%, var(--glow-3), transparent 22%);
+    opacity: 0.95;
+}
+
+.color-toggle-btn {
+    border: none;
+    background: rgba(255, 170, 70, 0.16);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 999px;
+    box-shadow: 0 0 18px rgba(255, 165, 45, 0.24);
+    cursor: pointer;
+    transition: transform 0.2s ease, background 0.25s ease, box-shadow 0.25s ease;
+    font-size: 0.85rem;
+    letter-spacing: 0.02em;
+}
+
+.color-toggle-btn:hover {
+    transform: translateY(-1px);
+    background: rgba(255, 170, 70, 0.26);
+    box-shadow: 0 0 26px rgba(255, 165, 45, 0.32);
+}
+
+.color-panel {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    margin-top: 10px;
+    width: 240px;
+    padding: 16px;
+    background: rgba(10, 7, 12, 0.92);
+    color: #f5f0e6;
+    border: 1px solid rgba(255, 170, 70, 0.2);
+    border-radius: 16px;
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35);
+    backdrop-filter: blur(14px);
+    display: grid;
+    gap: 12px;
+    font-size: 0.9rem;
+    z-index: 1100;
+}
+
+/* Asegura que el panel se oculte cuando tenga el atributo hidden */
+.color-panel[hidden] {
+    display: none !important;
+}
+
+.color-panel label {
+    display: grid;
+    gap: 8px;
+    text-align: left;
+    font-weight: 500;
+}
+
+.color-panel input[type="color"] {
+    width: 100%;
+    height: 42px;
+    border: none;
+    border-radius: 12px;
+    padding: 0;
+    cursor: pointer;
+}
+
+.color-panel input[type="range"] {
+    width: 100%;
+    accent-color: #ffb347;
+}
+
+.color-close-btn {
+    position: absolute;
+    top: 10px;
+    right: 12px;
+    width: 30px;
+    height: 30px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.08);
+    color: #fff;
+    font-size: 1.2rem;
+    line-height: 1;
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: background 0.2s ease;
+}
+
+.color-close-btn:hover {
+    background: rgba(255, 255, 255, 0.14);
+}
+
+.color-panel span {
+    font-size: 0.82rem;
+    color: rgba(255, 255, 255, 0.78);
+}
+
+body[data-theme="cool"] {
+    --bg-start: #07101f;
+    --bg-mid: #091834;
+    --bg-end: #04060c;
+    --glow-1: rgba(94, 178, 255, 0.18);
+    --glow-2: rgba(74, 199, 255, 0.12);
+    --glow-3: rgba(148, 214, 255, 0.05);
+    --bubble-mid: rgba(160, 220, 255, 0.44);
+    --bubble-shadow: rgba(49, 118, 196, 0.18);
+    --bubble-glow: rgba(95, 178, 255, 0.2);
+}
+
+body[data-theme="ember"] {
+    --bg-start: #2a0700;
+    --bg-mid: #3f1200;
+    --bg-end: #100403;
+    --glow-1: rgba(255, 116, 30, 0.18);
+    --glow-2: rgba(255, 179, 58, 0.12);
+    --glow-3: rgba(255, 220, 112, 0.05);
+    --bubble-mid: rgba(255, 195, 110, 0.44);
+    --bubble-shadow: rgba(180, 90, 25, 0.18);
+    --bubble-glow: rgba(255, 130, 30, 0.2);
+}
+
+body[data-theme="warm"] {
+    --bg-start: #120408;
+    --bg-mid: #19070c;
+    --bg-end: #070306;
+    --glow-1: rgba(255, 166, 56, 0.18);
+    --glow-2: rgba(255, 220, 120, 0.12);
+    --glow-3: rgba(255, 207, 131, 0.05);
+    --bubble-mid: rgba(255, 182, 85, 0.44);
+    --bubble-shadow: rgba(180, 65, 12, 0.18);
+    --bubble-glow: rgba(255, 150, 60, 0.2);
+}
+
+.lava-bubble {
+    position: absolute;
+    border-radius: 50%;
+    box-shadow:
+        inset 0 0 30px rgba(255, 255, 255, 0.55),
+        0 0 40px var(--bubble-glow),
+        0 0 90px rgba(255, 170, 70, 0.14);
+    background: radial-gradient(circle at 30% 30%, var(--bubble-light), var(--bubble-mid) 28%, var(--bubble-shadow) 60%, rgba(19, 6, 3, 0.1) 95%);
+    backdrop-filter: blur(3px);
+    filter: drop-shadow(0 0 8px var(--bubble-glow));
+    animation: bubbleRise var(--bubble-duration, 24s) linear infinite;
+    transform-origin: center;
+}
+
+.lava-bubble::after {
+    content: '';
+    position: absolute;
+    inset: 18% 22% 58% 18%;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 30%, rgba(255,255,255,0.9), transparent 65%);
+    opacity: 0.75;
+    pointer-events: none;
+}
+
+@keyframes bubbleRise {
+    0% {
+        transform: translate3d(0, 130vh, 0) scale(1);
+        opacity: 0.75;
+    }
+    25% {
+        transform: translate3d(12px, 80vh, 0) scale(1.02);
+        opacity: 0.92;
+    }
+    50% {
+        transform: translate3d(-10px, 30vh, 0) scale(1.01);
+        opacity: 1;
+    }
+    75% {
+        transform: translate3d(8px, -20vh, 0) scale(0.99);
+        opacity: 0.9;
+    }
+    100% {
+        transform: translate3d(-8px, -130vh, 0) scale(1);
+        opacity: 0.72;
+    }
+}
+
+.bubble-1 {
+    width: 18rem;
+    height: 18rem;
+    left: 8%;
+    top: 20%;
+    animation-duration: 28s;
+    animation-delay: -6s;
+}
+
+.bubble-2 {
+    width: 11rem;
+    height: 11rem;
+    left: 24%;
+    top: 35%;
+    animation-duration: 22s;
+    animation-delay: -3s;
+}
+
+.bubble-3 {
+    width: 14rem;
+    height: 14rem;
+    left: 45%;
+    top: 25%;
+    animation-duration: 26s;
+    animation-delay: -8s;
+}
+
+.bubble-4 {
+    width: 9rem;
+    height: 9rem;
+    left: 62%;
+    top: 40%;
+    animation-duration: 20s;
+    animation-delay: -10s;
+}
+
+.bubble-5 {
+    width: 16rem;
+    height: 16rem;
+    left: 72%;
+    top: 15%;
+    animation-duration: 30s;
+    animation-delay: -14s;
+}
+
+.bubble-6 {
+    width: 12rem;
+    height: 12rem;
+    left: 15%;
+    top: 55%;
+    animation-duration: 24s;
+    animation-delay: -4s;
+}
+
+.bubble-7 {
+    width: 8.5rem;
+    height: 8.5rem;
+    left: 54%;
+    top: 60%;
+    animation-duration: 18s;
+    animation-delay: -11s;
+}
+
+.bubble-8 {
+    width: 10rem;
+    height: 10rem;
+    left: 85%;
+    top: 50%;
+    animation-duration: 23s;
+    animation-delay: -7s;
 }
 
 .portada-content {

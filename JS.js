@@ -31,6 +31,125 @@ window.showSection = function(sectionId) {
     }, 100);
 };
 
+const colorToggle = document.getElementById('color-toggle');
+const colorPanel = document.getElementById('color-panel');
+const colorClose = document.getElementById('color-close');
+const colorPicker = document.getElementById('color-picker');
+const satSlider = document.getElementById('sat-slider');
+const lumSlider = document.getElementById('lum-slider');
+const satValue = document.getElementById('sat-value');
+const lumValue = document.getElementById('lum-value');
+
+function hexToRgb(hex) {
+    const normalized = hex.replace('#', '');
+    const full = normalized.length === 3 ? normalized.split('').map(c => c + c).join('') : normalized;
+    const int = parseInt(full, 16);
+    return [(int >> 16) & 255, (int >> 8) & 255, int & 255];
+}
+
+function rgbToHsl(r, g, b) {
+    r /= 255; g /= 255; b /= 255;
+    const max = Math.max(r, g, b);
+    const min = Math.min(r, g, b);
+    const delta = max - min;
+    let h = 0;
+    let s = 0;
+    const l = (max + min) / 2;
+
+    if (delta !== 0) {
+        s = delta / (1 - Math.abs(2 * l - 1));
+        switch (max) {
+            case r: h = ((g - b) / delta + (g < b ? 6 : 0)); break;
+            case g: h = ((b - r) / delta + 2); break;
+            case b: h = ((r - g) / delta + 4); break;
+        }
+        h *= 60;
+    }
+
+    return [Math.round(h), Math.round(s * 100), Math.round(l * 100)];
+}
+
+function updateColorSettings() {
+    if (!colorPicker || !satSlider || !lumSlider) return;
+    const [h] = rgbToHsl(...hexToRgb(colorPicker.value));
+    const s = Number(satSlider.value);
+    const l = Number(lumSlider.value);
+    const glowLight = Math.min(l + 35, 95);
+    const bubbleMid = Math.min(l + 18, 90);
+    const shadowLight = Math.max(l - 38, 15);
+    const glowLightStrong = Math.min(l + 45, 95);
+
+    satValue.textContent = `${s}%`;
+    lumValue.textContent = `${l}%`;
+
+    document.documentElement.style.setProperty('--glow-1', `hsla(${h}, ${s}%, ${glowLight}%, 0.18)`);
+    document.documentElement.style.setProperty('--glow-2', `hsla(${h}, ${s}%, ${Math.min(l + 20, 95)}%, 0.12)`);
+    document.documentElement.style.setProperty('--glow-3', `hsla(${h}, ${s}%, ${Math.min(l + 10, 95)}%, 0.05)`);
+    document.documentElement.style.setProperty('--bubble-light', `hsla(${h}, ${s}%, ${Math.min(l + 45, 95)}%, 0.95)`);
+    document.documentElement.style.setProperty('--bubble-mid', `hsla(${h}, ${s}%, ${bubbleMid}%, 0.44)`);
+    document.documentElement.style.setProperty('--bubble-shadow', `hsla(${h}, ${s}%, ${shadowLight}%, 0.18)`);
+    document.documentElement.style.setProperty('--bubble-glow', `hsla(${h}, ${s}%, ${glowLightStrong}%, 0.2)`);
+}
+
+function openColorPanel() {
+    if (!colorPanel || !colorToggle) return;
+    colorPanel.removeAttribute('hidden');
+    colorToggle.setAttribute('aria-expanded', 'true');
+}
+
+function closeColorPanel() {
+    if (!colorPanel || !colorToggle) return;
+    colorPanel.setAttribute('hidden', '');
+    colorToggle.setAttribute('aria-expanded', 'false');
+}
+
+if (colorToggle && colorPanel) {
+    colorToggle.addEventListener('click', (event) => {
+        event.stopPropagation();
+        const shouldOpen = colorPanel.hidden;
+        if (shouldOpen) {
+            openColorPanel();
+        } else {
+            closeColorPanel();
+        }
+    });
+}
+
+if (colorClose) {
+    colorClose.addEventListener('click', (event) => {
+        event.stopPropagation();
+        closeColorPanel();
+    });
+}
+
+document.addEventListener('click', (event) => {
+    if (!colorPanel || colorPanel.hidden) return;
+    const target = event.target;
+    if (target instanceof Node && colorPanel.contains(target)) return;
+    if (colorToggle && colorToggle.contains(target)) return;
+    closeColorPanel();
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape') {
+        closeColorPanel();
+    }
+});
+
+if (colorPicker) {
+    colorPicker.addEventListener('input', updateColorSettings);
+}
+
+if (satSlider) {
+    satSlider.addEventListener('input', updateColorSettings);
+}
+
+if (lumSlider) {
+    lumSlider.addEventListener('input', updateColorSettings);
+}
+
+updateColorSettings();
+
 // Event listeners para los links del nav
 navLinks.forEach(link => {
     link.addEventListener('click', (e) => {
