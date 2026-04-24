@@ -224,35 +224,84 @@
 
 <!-- TECNOLOGÍAS -->
 <section id="technologies" class="seccion section-item">
-    <h2>Technologies Used</h2> 
-    <ul> 
-        <h3>📱 Desarrollo Android</h3>
-            <li>Kotlin</li>
-            <li>Jetpack Compose</li>
-            <li>Android Jetpack</li>
-
-        <h3>🧠 Arquitectura</h3>
-            <li>MVVM (Model-View-ViewModel)</li>
-            <li>Repository Pattern</li>
-        <h3>☁️ Backend / Servicios</h3>
-            <li>Firebase</li>
-            <li>Firebase Authentication</li>
-            <li>Cloud Firestore</li>
-            <li>Firebase Cloud Messaging</li>
-            <li>Firebase Storage</li>
-        <h3>🌐 Consumo de APIs</h3>
-            <li>Retrofit</li>
-        <h3>💾 Base de datos local</h3>
-            <li>Room (SQLite)</li>
-        <h3>🖼️ Manejo de imágenes</h3>
-            <li>Coil</li>
-        <h3>🔐 Seguridad</h3>
-            <li>JWT</li>
-            <li>Encriptación de datos</li>
-
-
-    
-    </ul>
+    <h2>Technologies Used</h2>
+    <div class="technologies-grid">
+        <div class="tech-card">
+            <div class="tech-icon">📱</div>
+            <h4>Kotlin</h4>
+            <p>Modern programming language for Android, offering concise syntax and null safety.</p>
+        </div>
+        <div class="tech-card">
+            <div class="tech-icon">🎨</div>
+            <h4>Jetpack Compose</h4>
+            <p>Declarative UI toolkit for building native Android interfaces.</p>
+        </div>
+        <div class="tech-card">
+            <div class="tech-icon">📚</div>
+            <h4>Android Jetpack</h4>
+            <p>Suite of libraries to follow best practices and reduce boilerplate code.</p>
+        </div>
+        <div class="tech-card">
+            <div class="tech-icon">🧠</div>
+            <h4>MVVM</h4>
+            <p>Design pattern that separates UI logic from business logic for better maintainability.</p>
+        </div>
+        <div class="tech-card">
+            <div class="tech-icon">🏗️</div>
+            <h4>Repository Pattern</h4>
+            <p>Abstraction layer for data access, centralizing data operations.</p>
+        </div>
+        <div class="tech-card">
+            <div class="tech-icon">☁️</div>
+            <h4>Firebase</h4>
+            <p>Platform for building web and mobile apps with backend services.</p>
+        </div>
+        <div class="tech-card">
+            <div class="tech-icon">🔐</div>
+            <h4>Firebase Auth</h4>
+            <p>Secure user authentication and authorization service.</p>
+        </div>
+        <div class="tech-card">
+            <div class="tech-icon">💾</div>
+            <h4>Cloud Firestore</h4>
+            <p>NoSQL cloud database for real-time data synchronization.</p>
+        </div>
+        <div class="tech-card">
+            <div class="tech-icon">📢</div>
+            <h4>Firebase Messaging</h4>
+            <p>Service for sending notifications and messages to users.</p>
+        </div>
+        <div class="tech-card">
+            <div class="tech-icon">🗂️</div>
+            <h4>Firebase Storage</h4>
+            <p>Cloud storage for files and media, with secure access.</p>
+        </div>
+        <div class="tech-card">
+            <div class="tech-icon">🌐</div>
+            <h4>Retrofit</h4>
+            <p>Type-safe HTTP client for Android and Java, simplifying API calls.</p>
+        </div>
+        <div class="tech-card">
+            <div class="tech-icon">💽</div>
+            <h4>Room (SQLite)</h4>
+            <p>Object-relational mapping library for local data persistence.</p>
+        </div>
+        <div class="tech-card">
+            <div class="tech-icon">🖼️</div>
+            <h4>Coil</h4>
+            <p>Image loading library for Android, fast and efficient.</p>
+        </div>
+        <div class="tech-card">
+            <div class="tech-icon">🔑</div>
+            <h4>JWT</h4>
+            <p>JSON Web Tokens for secure data transmission and authentication.</p>
+        </div>
+        <div class="tech-card">
+            <div class="tech-icon">🛡️</div>
+            <h4>Data Encryption</h4>
+            <p>Techniques to protect sensitive data from unauthorized access.</p>
+        </div>
+    </div>
 </section>
 
 <!-- CRONOGRAMA -->
@@ -262,43 +311,100 @@
     <div class="gantt-container">
 
         <div class="gantt-header">
-            <div style="padding: 15px;">Tarea / Fase</div>
+            <div style="padding: 15px;">Task / Phase</div>
             <div class="months-grid">
-                <div>Semana 1</div>
-                <div>Semana 2</div>
-                <div>Semana 3</div>
-                <div>Semana 4</div>
+                <div>Week 1</div>
+                <div>Week 2</div>
+                <div>Week 3</div>
+                <div>Week 4</div>
+                <div>Week 5</div>
+                <div>Week 6</div>
+                <div>Week 7</div>
+                <div>Week 8</div>
+                <div>Week 9</div>
+                <div>Week 10</div>
+                <div>Week 11</div>
+                <div>Week 12</div>
             </div>
         </div>
 
         <div class="gantt-row">
             <div class="task-name">
-                Definición de Requerimientos
-                <span class="status-tag">Listo</span>
+                Requirements Definition
+                <span class="status-tag" data-status="Completed">Completed</span>
             </div>
             <div class="timeline-wrapper">
-                <div class="bar" style="width: 25%; margin-left: 0%; background-color: #2aa505;">100%</div>
-            </div>
-        </div>
-
-        <div class="gantt-row">
-            <div class="task-name">Diseño de Arquitectura</div>
-            <div class="timeline-wrapper">
-                <div class="bar" style="width: 40%; margin-left: 20%; background-color: #8b5cf6;">60%</div>
+                <div class="bar" style="width: 8.33%; margin-left: 0%; background-color: #2aa505;">100%</div>
             </div>
         </div>
 
         <div class="gantt-row">
-            <div class="task-name">Desarrollo Frontend</div>
+            <div class="task-name">
+                Architecture Design
+                <span class="status-tag" data-status="Completed">Completed</span>
+            </div>
             <div class="timeline-wrapper">
-                <div class="bar" style="width: 30%; margin-left: 45%; background-color: #06b6d4;">En proceso</div>
+                <div class="bar" style="width: 16.67%; margin-left: 8.33%; background-color: #8b5cf6;">100%</div>
             </div>
         </div>
 
         <div class="gantt-row">
-            <div class="task-name">Pruebas QA</div>
+            <div class="task-name">
+                Backend Development
+                <span class="status-tag" data-status="In Progress">In Progress</span>
+            </div>
             <div class="timeline-wrapper">
-                <div class="bar" style="width: 20%; margin-left: 75%; background-color: #f59e0b;">Pendiente</div>
+                <div class="bar" style="width: 25%; margin-left: 25%; background-color: #06b6d4;">75%</div>
+            </div>
+        </div>
+
+        <div class="gantt-row">
+            <div class="task-name">
+                Frontend Development
+                <span class="status-tag" data-status="In Progress">In Progress</span>
+            </div>
+            <div class="timeline-wrapper">
+                <div class="bar" style="width: 20.83%; margin-left: 50%; background-color: #f59e0b;">60%</div>
+            </div>
+        </div>
+
+        <div class="gantt-row">
+            <div class="task-name">
+                API Integration
+                <span class="status-tag" data-status="Pending">Pending</span>
+            </div>
+            <div class="timeline-wrapper">
+                <div class="bar" style="width: 12.5%; margin-left: 70.83%; background-color: #ef4444;">0%</div>
+            </div>
+        </div>
+
+        <div class="gantt-row">
+            <div class="task-name">
+                Unit Testing
+                <span class="status-tag" data-status="Pending">Pending</span>
+            </div>
+            <div class="timeline-wrapper">
+                <div class="bar" style="width: 8.33%; margin-left: 83.33%; background-color: #10b981;">0%</div>
+            </div>
+        </div>
+
+        <div class="gantt-row">
+            <div class="task-name">
+                Integration Testing
+                <span class="status-tag" data-status="Pending">Pending</span>
+            </div>
+            <div class="timeline-wrapper">
+                <div class="bar" style="width: 8.33%; margin-left: 91.67%; background-color: #f97316;">0%</div>
+            </div>
+        </div>
+
+        <div class="gantt-row">
+            <div class="task-name">
+                Deployment and Launch
+                <span class="status-tag" data-status="Pending">Pending</span>
+            </div>
+            <div class="timeline-wrapper">
+                <div class="bar" style="width: 8.33%; margin-left: 100%; background-color: #6366f1;">0%</div>
             </div>
         </div>
 
