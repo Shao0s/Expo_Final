@@ -266,12 +266,22 @@ body {
     margin: 5px 0;
 }
 
-#description p, #roles p, #functions p, #technologies p {
+/* Estilo común para párrafos de secciones */
+.section-text {
     font-size: 1.25rem;
     text-align: justify;
     line-height: 1.6;
     max-width: 800px;
     margin: 10px auto;
+    color: #f9f222;
+    padding: 0 20px;
+}
+
+#cronograma p {
+    font-size: 1.25rem;
+    text-align: justify;
+    line-height: 1. 6;
+    max-width: 800px;               
 }
     
 
@@ -554,15 +564,7 @@ footer {
     border-bottom: 1px solid rgba(6, 182, 212, 0.2);
     padding-bottom: 4px;
 }
-#roles li p {
-    max-width: 800px;
-    margin: 10px auto;
-    line-height: 1.6;
-    color: #f8d040;
-    font-size: 1.5rem;
-    text-align: justify;
 
-}   
 
 .mermaid {
     transform: scale(0.8); 
