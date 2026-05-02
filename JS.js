@@ -173,6 +173,38 @@ if (navLinks.length > 0) {
 }
 
 // ============================
+// NAVEGACIÓN CON TECLADO
+// ============================
+
+document.addEventListener("keydown", (e) => {
+    const activeLink = document.querySelector(".navbar-fixed a.active");
+    if (!activeLink) return;
+
+    const linksArray = Array.from(navLinks);
+    let currentIndex = linksArray.indexOf(activeLink);
+
+    // Flecha derecha o abajo → ↓
+    if (e.key === "ArrowRight" || e.key === "ArrowDown") {
+        e.preventDefault();
+
+        let nextIndex = (currentIndex + 1) % linksArray.length;
+        const nextSection = linksArray[nextIndex].dataset.section;
+
+        showSection(nextSection);
+    }
+
+    // Flecha izquierda o arriba ← ↑
+    if (e.key === "ArrowLeft" || e.key === "ArrowUp") {
+        e.preventDefault();
+
+        let prevIndex = (currentIndex - 1 + linksArray.length) % linksArray.length;
+        const prevSection = linksArray[prevIndex].dataset.section;
+
+        showSection(prevSection);
+    }
+});
+
+// ============================
 // CARRUSEL CLIENTES
 // ============================
 let unifiedIndex = 0;
