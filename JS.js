@@ -173,6 +173,46 @@ if (navLinks.length > 0) {
 }
 
 // ============================
+// MODAL PARA DIAGRAMA MERMAID
+// ============================
+
+function abrirDiagrama() {
+    const modal = document.getElementById("diagram-modal");
+    const modalContent = document.getElementById("diagram-content");
+    const originalDiagram = document.querySelector("#design .mermaid");
+
+    if (!modal || !modalContent || !originalDiagram) return;
+
+    modalContent.innerHTML = originalDiagram.innerHTML;
+    modal.style.display = "flex";
+}
+
+function cerrarDiagrama() {
+    const modal = document.getElementById("diagram-modal");
+    if (modal) {
+        modal.style.display = "none";
+    }
+}
+
+// evento click sobre el diagrama
+document.addEventListener("DOMContentLoaded", () => {
+    const diagram = document.querySelector("#design .mermaid");
+    const modalContent = document.getElementById("diagram-content");
+
+    if (diagram) {
+        diagram.addEventListener("click", abrirDiagrama);
+    }
+
+    // cerrar con doble click dentro del modal
+    if (modalContent) {
+        modalContent.addEventListener("dblclick", cerrarDiagrama);
+
+        // también cerrar con click simple
+        modalContent.addEventListener("click", cerrarDiagrama);
+    }
+});
+
+// ============================
 // NAVEGACIÓN CON TECLADO
 // ============================
 
@@ -257,3 +297,4 @@ function reinitializeCarousels() {
 
 // Inicializar carruseles al cargar
 reinitializeCarousels();
+

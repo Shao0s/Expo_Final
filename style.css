@@ -856,7 +856,7 @@ footer {
 
 
 .mermaid {
-    transform: scale(0.8); 
+    transform: scale(1); 
     transform-origin: top center;
     transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1), background 0.3s ease;
     margin-top: 0;
@@ -919,4 +919,56 @@ footer {
     color: #ffffff;
     line-height: 1.4;
     margin: 0;
+}
+
+/* ========================= */
+/* MODAL DIAGRAMA */
+/* ========================= */
+
+/* ========================= */
+/* MODAL DIAGRAMA PANTALLA COMPLETA */
+/* ========================= */
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.92);
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    padding: 0;
+}
+
+.modal-diagram {
+    width: 100vw;
+    height: 100vh;
+    background: rgba(15, 15, 15, 0.98);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.modal-diagram svg {
+    width: 95vw;
+    height: 95vh;
+    max-width: none;
+    max-height: none;
+    object-fit: contain;
+}
+
+.mermaid .node rect,
+.mermaid .node polygon,
+.mermaid .node circle {
+    rx: 8;
+    ry: 8;
+    stroke-width: 2px;
+}
+
+.mermaid text {
+    font-size: 16px !important;
+    font-weight: bold;
 }
