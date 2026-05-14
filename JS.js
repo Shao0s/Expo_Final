@@ -297,4 +297,3 @@ function reinitializeCarousels() {
 
 // Inicializar carruseles al cargar
 reinitializeCarousels();
-

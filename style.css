@@ -972,3 +972,50 @@ footer {
     font-size: 16px !important;
     font-weight: bold;
 }
+
+/* ========================= */
+/* SECCIÓN DE PRESUPUESTO */
+/* ========================= */
+
+#budget {
+    justify-content: flex-start; /* Align content to the top */
+    padding-top: 20px; /* Add some top padding */
+    height: 100%;
+    overflow-y: auto; /* Allow scrolling if content is too long */
+}
+
+#budget .editable-content {
+    background: rgba(255, 255, 255, 0.03);
+    border: 1px dashed rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+    padding: 20px;
+    margin: 20px auto;
+    max-width: 800px;
+    color: #f9f222; /* Inherit or set a suitable text color */
+    line-height: 1.6;
+    text-align: left; /* Align text left within the editable area */
+    min-height: 200px; /* Ensure it's visible even if empty */
+    outline: none; /* Remove default focus outline */
+    transition: border-color 0.3s ease, background 0.3s ease;
+}
+
+#budget .editable-content:focus {
+    border-color: #06b6d4; /* Highlight border on focus */
+    background: rgba(255, 255, 255, 0.05);
+}
+
+#budget .editable-content h3 {
+    color: #06b6d4; /* A distinct color for subheadings */
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+#budget .editable-content ul {
+    list-style-type: disc;
+    margin-left: 25px;
+    margin-bottom: 15px;
+}
+
+#budget .editable-content li {
+    margin-bottom: 5px;
+}
